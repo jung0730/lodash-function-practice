@@ -13,20 +13,22 @@ const object3 = {
 const merge = (object1, object2) => { // object is not iterable
   const result = {}
   for (let key of Object.keys(object2)) {
-    const flattenObj1 = {}
-    const flattenObj2 = {}
-    object1[key].forEach(el => {
-      for (let key in el) {
-        flattenObj1[key] = el[key]
+    const reducer1 = object1[key].reduce((acc, cur) => {
+      for (let key in cur) {
+        return {
+          ...acc, [key]: cur[key]
+        }
       }
-    })
-    object2[key].forEach(el => {
-      for (let key in el) {
-        flattenObj2[key] = el[key]
+    }, {})
+    const reducer2 = object2[key].reduce((acc, cur) => {
+      for (let key in cur) {
+        return {
+          ...acc, [key]: cur[key]
+        }
       }
-    })
+    }, {})
     result[key] = []
-    result[key].push(flattenObj1, flattenObj2)
+    result[key].push(reducer1, reducer2)
   }
   return result
 }
