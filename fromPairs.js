@@ -1,12 +1,12 @@
-// const fromPairs = (pairs) => {
-//   return pairs.reduce((acc, cur) => {
-//     const [key, value] = cur;
-//     return {
-//       ...acc,
-//       [key]: value
-//     }
-//   }, {})
-// }
+const fromPairs = (pairs) => {
+  return pairs.reduce((acc, cur) => {
+    const [key, value] = cur;
+    return {
+      ...acc,
+      [key]: value
+    }
+  }, {})
+}
 
 // solution 2
 // convert an array to an object
